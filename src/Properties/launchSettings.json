@@ -25,7 +25,8 @@
         "BACKEND_6_APIKEY": "your-api-key",
         "BACKEND_7_URL": "https://andre-openai-australia.openai.azure.com/",
         "BACKEND_7_PRIORITY": "4",
-        "BACKEND_7_APIKEY": "your-api-key"
+        "BACKEND_7_APIKEY": "your-api-key",
+        "proxy_api_key": "your-proxy-key"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7151"

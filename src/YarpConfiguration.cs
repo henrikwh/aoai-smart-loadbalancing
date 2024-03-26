@@ -91,6 +91,7 @@ public class YarpConfiguration
         return context =>
         {
             var proxyHeaders = context.ProxyRequest.Headers;
+            
             var reverseProxyFeature = context.HttpContext.GetReverseProxyFeature();
 
             var backendConfig = backends[reverseProxyFeature.AvailableDestinations[0].DestinationId];
