@@ -12,7 +12,7 @@ public class Program
 
         var backendConfiguration = BackendConfig.LoadConfig(builder.Configuration);
         var yarpConfiguration = new YarpConfiguration(backendConfiguration);
-        string? proxyKey = Environment.GetEnvironmentVariable("proxy_api_key");
+        string? proxyKey = Environment.GetEnvironmentVariable("api_key");
         if (proxyKey == null)
             throw new ArgumentException("proxy_key not set");
         builder.Services.AddSingleton<IPassiveHealthCheckPolicy, ThrottlingHealthPolicy>();
@@ -32,7 +32,7 @@ public class Program
             m.UsePassiveHealthChecks();
             m.Use( (context, next) =>
             {
-                if (context.Request.Headers.TryGetValue("proxy-api-key", out StringValues s))
+                if (context.Request.Headers.TryGetValue("api-key", out StringValues s))
                 {
                     var key = s.First();
                     if (proxyKey == key )
